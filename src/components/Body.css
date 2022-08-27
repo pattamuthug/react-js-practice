@@ -1,10 +1,19 @@
-
 .items{
-    /* border: solid 2px green; */
     background-color: black;
     display: flex;
     justify-content: space-between;
     margin: opx 40px 20px 100px;
+}
+h2{
+    margin-bottom: 0;
+    padding: 0;
+}
+.offer{
+    /* width: 100px; */
+    /* height: 20px; */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 5px;
 }
 .items select{
     margin: 10px 30px 20px 30px;
@@ -12,22 +21,23 @@
     width: auto;
     height: 25px;
 }
+.foot-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
 .dish{
     margin-top: 2%;
-    margin-left: 25%;
-    /* border: solid 2px red; */
     display: flex;
-    width: 700px;
+    width: 600px;
 
 }
 .dish img{
     border-radius: 10px;
     width: 200px;
-    height: 200px;
+    /* height: 200px; */
 }
 img+div{
-    /* border: solid 2px red; */
-    /* font-size: larger; */
+   
     margin-top: -25px;
     margin-left: 70px;
 }
@@ -51,4 +61,9 @@ div p:nth-child(3){
 div p:nth-child(4){
     font-weight: bolder;
     color: red;
+}
+.formitems{
+    border: solid 2px black;
+    display: flex;
+    justify-content:space-around;
 }
