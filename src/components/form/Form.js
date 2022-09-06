@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React ,{ useState} from 'react'
 import './Form.css'
 
 export default function Form(props) {
@@ -24,6 +24,7 @@ export default function Form(props) {
     const qtyHandle=(event)=>{
         setFoodItem((previousState)=>{
             return{...previousState, location: event.target.value }
+            
     });
 }
     const rateHandle=(event)=>{
@@ -32,24 +33,34 @@ export default function Form(props) {
     });
 
 }
+// useEffect(()=>{
+//     fetch('https://6315a5215b85ba9b11e3c470.mockapi.io/muthu/fooditems').then((response)=>{
+//         if (response.ok) {
+//             return response.json()
+//         } 
+//         return false
+//     })
+//     .then((data)=>{
+//         setFoodItem(data)
+//     })
+// })
     const submitHandler=(event)=>{
         event.preventDefault();
-        // console.log(fooditem);
         props.onFormAdd(fooditem);
-        setFoodItem({  name: "",
+        setFoodItem({  
+        name: "",
         time: "",
         location: "",
-        rate: "",
-        qty:''});
+        rate: ""
+    });
     }
     
     return(
-        <form className="form-container" onSubmit={submitHandler}>
-            <input type="text" placeholder="enter the dish name" value={fooditem.name} onChange={dishHandle} />
-            {/* <input type="text" placeholder="enter the hotelname" value={fooditem.hname} onChange={hHandle} /> */}
-            <input type="text" placeholder="enter the time" value={fooditem.time} onChange={lHandle} />
-            <input type="text" placeholder="enter the location" value={fooditem.location} onChange={qtyHandle} />
-            <input type="number" placeholder="enter the price" value={fooditem.rate} onChange={rateHandle} />
+        <form className="form-container" onSubmit={submitHandler} >
+            <input type="text" placeholder="enter the dish name" value={fooditem.name}  onChange={dishHandle} required/>
+            <input type="number" placeholder="enter the required time"  maxLength={2} value={fooditem.time} onChange={lHandle} required/>
+            <input type="text" placeholder="enter the location" value={fooditem.location} onChange={qtyHandle} required/>
+            <input type="number" placeholder="enter the price" value={fooditem.rate} onChange={rateHandle} required/>
             <input type="submit"/>
         </form>
     );
