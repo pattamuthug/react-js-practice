@@ -18,24 +18,39 @@ h2{
 .items select{
     margin: 10px 30px 20px 30px;
     border-radius: 10px;
-    width: auto;
+    /* width: auto; */
     height: 25px;
 }
 .foot-container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4,2fr);
+    /* grid-auto-rows: 100px; */
+    gap: 1em;
+    /* flex-wrap: wrap; */
+    width: 1200px;
+    margin: auto;
+    border: solid 2px black;
+}
+.fooditems{
+    width: 250px;
+    /* border: solid 2px black; */
 }
 .dish{
     margin-top: 2%;
     margin-left: 1%;
     display: flex;
-    width: 600px;
+    flex-direction: column;
+    padding: 10px;
+
 
 }
 .dish img{
-    border-radius: 10px;
+    border-radius: 20px;
+    /* padding: 10px; */
     width: 200px;
-    /* height: 200px; */
+    height: 200px;
+    padding-left: 13px;
+    
 }
 .nofood{
     position: absolute;
@@ -47,26 +62,26 @@ h2{
 img+div{
    
     margin-top: -25px;
-    margin-left: 70px;
+    margin-left: 30px;
 }
 .dish:hover{
     box-shadow: 0px 0px 5px 5px gray;
     border-radius: 10px;
 }
-div p:nth-child(1){
+.dish div p:nth-child(1){
     color: blue;
     font-size: x-large;
     font-weight: bolder;
     letter-spacing: 3px;
 }
-div p:nth-child(2){
+.dish div p:nth-child(2){
     font-weight: bolder;
 }
-div p:nth-child(3){
+.dish div p:nth-child(3){
     font-weight: bolder;
     color: green;
 }
-div p:nth-child(4){
+.dish div p:nth-child(4){
     font-weight: bolder;
     color: red;
 }

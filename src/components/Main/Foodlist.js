@@ -1,9 +1,8 @@
-import './Body.css';
-import "./Bodyitems.js";
-import Fooditems from "./Bodyitems.js";
-// import { Formitems } from './Bodyitems.js';
+import './Foodlist.css';
+import './Fooditems.js';
+import Fooditems from "./Fooditems.js";
 
-function Food(props) {
+function Foodlist(props) {
 
     return (
         <div className='foot-container'>
@@ -26,4 +25,4 @@ function Food(props) {
     );
 };
 
-export default Food;
+export default Foodlist;
