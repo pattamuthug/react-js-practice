@@ -1,9 +1,16 @@
 .items{
-    background-color: black;
+    background-color: rgba(51, 47, 47, 0.822);
     display: flex;
     justify-content: space-between;
     margin: opx 40px 20px 100px;
 }
+.filters{
+    color:red;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}
+
 h2{
     margin-bottom: 0;
     padding: 0;
@@ -29,7 +36,7 @@ h2{
     /* flex-wrap: wrap; */
     width: 1200px;
     margin: auto;
-    border: solid 2px black;
+    /* border: solid 2px black; */
 }
 .fooditems{
     width: 250px;
@@ -54,7 +61,7 @@ h2{
 }
 .nofood{
     position: absolute;
-    border: solid 2px black;
+    /* border: solid 2px black; */
     padding: 10px;
     text-align: center;
     margin-left: 400px;
@@ -86,7 +93,7 @@ img+div{
     color: red;
 }
 .formitems{
-    border: solid 2px black;
+    /* border: solid 2px black; */
     display: flex;
     justify-content:space-around;
 }

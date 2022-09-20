@@ -24,7 +24,8 @@ function App() {
                 <Route index element={<Header logOut={loginHandler}></Header>}/>
                 <Route path='/login' element={<Login login={loginHandler}></Login>} />
                 <Route path='/signup' element={<Signup image={pizza} />}></Route>
-                <Route path='/:id' element={<Fooddetails/>}/>
+                <Route path='/details/:id' element={<Fooddetails/>}/>
+                
             </Routes>
         </div>
     );

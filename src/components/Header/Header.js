@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import Form from './form/Form.js';
 import logo from "../images/download.png";
+import './Header.css';
 import Foodlist from "../Main/Foodlist.js";
 import { useEffect, useState } from 'react';
 function Header(props) {
@@ -29,8 +30,9 @@ function Header(props) {
     }, [isloggedin])
 
     useEffect(() => {
-        console.log("summa");
+        // console.log("summa");
         fetch('https://6315a5215b85ba9b11e3c470.mockapi.io/muthu/fooditems').then((response) => {
+            // console.log(response.json());
             if (response.ok) {
                 return response.json()
             }
@@ -53,6 +55,7 @@ function Header(props) {
             <img src={logo} className="logo"></img>
             <h1>OREO</h1>
             <input type='text' placeholder="enter your dish or restaurant..."></input>
+            <div><i class="fa fa-cart-plus"></i></div>
             {
                 localStorage.getItem("login") == "true" ? <button onClick={logoutHandler}>Log out</button> : <button onClick={loginHandler}>Log in</button>
             }
@@ -89,8 +92,7 @@ function Header(props) {
         {
             isloggedin == "true" ? [<Form onFormAdd={FormHandler}></Form>, <Foodlist details={dishitems}></Foodlist>] : <p>please log in..!</p>
         }
-        {/* <Form onFormAdd={FormHandler}></Form>
-        <Foodlist details={dishitems}></Foodlist> */}
+    
     </>
 
     );

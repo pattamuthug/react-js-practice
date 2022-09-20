@@ -18,7 +18,7 @@ function Foodlist(props) {
     
     {
             props.details.map((items)=>{
-                return <Fooditems key={Math.random()} name={items.name} time={items.time} location={items.location} rate={items.rate}></Fooditems>
+                return <Fooditems key={Math.random()} name={items.name} time={items.time} location={items.location} rate={items.rate} img={items.result} id={items.id}></Fooditems>
             })
      }
     </div>

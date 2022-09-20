@@ -48,6 +48,14 @@ function Login(props) {
                 <p>Forgot password?</p>
                 {isvalid ? <button>LOGIN</button> : <button disabled>LOGIN</button>}
                 <div>
+                <p className="signtext">Or Sign Up Using</p>
+                <div className="icons">
+                       <a href="https://twitter.com"><i class="fa fa-twitter socialLink"></i></a> 
+                        <a href="https://www.facebook.com"><i class="fa fa-facebook socialLink" id="face"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/"><i class="fa fa-instagram socialLink" id="insta"></i></a>
+                </div>
+                </div>
+                <div>
                     <p className="signtext">Or Sign Up Using</p>
                     <h3 className="signup" onClick={Signup}>SIGN UP</h3>
 

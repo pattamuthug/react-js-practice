@@ -48,6 +48,7 @@ input:focus{
     border: none;
     cursor: pointer;
 }
+
 .form .signtext{
     margin: 40px auto auto 35%;
 }
@@ -55,4 +56,42 @@ input:focus{
 
     margin: 30px auto 30px 40%;
     cursor: pointer;
+}
+.form .icons{
+    margin-left: 33%;
+    margin-top: 15px;
+}
+.form .socialLink{
+    font-size:20px;
+        text-align: center;
+        padding-top: 10px;
+        border-radius: 60px;
+        height: 40px;
+        width: 40px;
+        margin: 5px 4px;
+    
+}
+.socialLink:hover{
+    animation-timing-function: ease-in-out;
+    animation: rotate 2s;
+}
+@keyframes rotate{
+    0% {transform:rotate(0deg);}
+    /* 25% {transform:rotate(90deg)} */
+    /* 50% {transform:rotate(180deg)} */
+    /* 75% {transform:rotate(270deg)} */
+    100% {transform:rotate(360deg)}
+}
+.form .icons i:nth-child(1){
+    background-color: skyblue;
+    color: white;
+}
+.form .icons #face{
+    background-color: rgb(68, 68, 146);
+    color: white;
+}
+.form .icons #insta{
+    background-color:   crimson;
+    border: solid 1px crimson;
+    color: white;
 }
