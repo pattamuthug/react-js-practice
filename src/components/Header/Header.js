@@ -1,17 +1,22 @@
 // import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer.js";
+import { useContext } from "react";
+import userContext from "../../userContext.js";
 import Form from './form/Form.js';
 import logo from "../images/download.png";
 import './Header.css';
 import Foodlist from "../Main/Foodlist.js";
 import { useEffect, useState } from 'react';
+import { Routes, Route, Link} from "react-router-dom";
 function Header(props) {
+    const addcartto = useNavigate();
     let logoutTo = useNavigate();
-    
+    const logOut = useContext(userContext);
     const logoutHandler = (event) => {
         event.preventDefault();
         localStorage.setItem("login", "false");
-        props.logOut('false');
+        logOut.setLoggedin('false');
         logoutTo('/login')
     };
     
@@ -49,13 +54,16 @@ function Header(props) {
         });
 
     }
+    const addHandler=()=>{
+        addcartto("/addcart");
+    }
     return (<>
         <header className="App-header">
 
             <img src={logo} className="logo"></img>
             <h1>OREO</h1>
             <input type='text' placeholder="enter your dish or restaurant..."></input>
-            <div><i class="fa fa-cart-plus"></i></div>
+            <div><i className="fa fa-cart-plus" onClick={addHandler}></i></div>
             {
                 localStorage.getItem("login") == "true" ? <button onClick={logoutHandler}>Log out</button> : <button onClick={loginHandler}>Log in</button>
             }
@@ -90,9 +98,10 @@ function Header(props) {
             </div>
         </div>
         {
-            isloggedin == "true" ? [<Form onFormAdd={FormHandler}></Form>, <Foodlist details={dishitems}></Foodlist>] : <p>please log in..!</p>
+            isloggedin == "true" ? [<Form onFormAdd={FormHandler} key={'asd'}></Form>, <Foodlist details={dishitems} key={'nsdf'}></Foodlist>] : <p>please log in..!</p>
         }
-    
+       
+    <Footer></Footer>
     </>
 
     );

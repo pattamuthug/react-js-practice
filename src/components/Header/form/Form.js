@@ -58,7 +58,7 @@ export default function Form(props) {
     return(
         <form className="form-container" onSubmit={submitHandler} >
             <input type="text" placeholder="enter the dish name" value={fooditem.name}  onChange={dishHandle} required/>
-            <input type="number" placeholder="enter the required time"  maxLength={2} value={fooditem.time} onChange={lHandle} required/>
+            <input type="number" placeholder="enter the required time" value={fooditem.time} onChange={lHandle} required/>
             <input type="text" placeholder="enter the location" value={fooditem.location} onChange={qtyHandle} required/>
             <input type="number" placeholder="enter the price" value={fooditem.rate} onChange={rateHandle} required/>
             <input type="submit"/>
