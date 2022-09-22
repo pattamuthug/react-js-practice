@@ -1,7 +1,8 @@
 
-import React,{ useState} from 'react';
+import React,{ useState,useContext} from 'react';
 import { Routes, Route, Link,useNavigate} from "react-router-dom";
 import './Fooditems.css';
+import userContext from '../../userContext';
 import briyani from "../images/briyani.jpg";
 import friedrice from "../images/fried rice.jpg";
 import idly from "../images/idly.jpg";
@@ -10,6 +11,7 @@ import grill from "../images/Tandoori-Chicken-20.jpg";
 
 function Fooditems(props) {
     const [rate, setRate] = useState(props.rate);
+    const cartContext = useContext(userContext)
     const detailsNavigate=useNavigate();
     
     const[like,setLike]=useState("unlike");
@@ -29,6 +31,13 @@ function Fooditems(props) {
     function detailsHandler(){
         detailsNavigate('/details/'+ props.id);
     }
+    // const[items,setItems]=useState(props.items)
+    const cartHandler=()=>{
+        // console.log(items);
+        cartContext.addcart(props.items)
+        console.log(props.items);
+
+    }
     return (
         <>
             <div className='fooditems'>
@@ -42,7 +51,7 @@ function Fooditems(props) {
                         <p>{props.location}</p>
                         <p>₹{rate} for one</p>
                         <button className="offer" onClick={offer}>Apply offer 50%</button>
-                        {/* <button onClick={cartHandler}>add to cart</button> */}
+                        <button onClick={cartHandler}>add to cart</button>
                     </div>
                     
                 </div>

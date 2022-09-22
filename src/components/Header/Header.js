@@ -57,13 +57,14 @@ function Header(props) {
     const addHandler=()=>{
         addcartto("/addcart");
     }
+    
     return (<>
         <header className="App-header">
 
             <img src={logo} className="logo"></img>
             <h1>OREO</h1>
             <input type='text' placeholder="enter your dish or restaurant..."></input>
-            <div><i className="fa fa-cart-plus" onClick={addHandler}></i></div>
+            <div><i className="fa fa-cart-plus" onClick={addHandler}></i> <p>{props.addCart.length}</p></div>
             {
                 localStorage.getItem("login") == "true" ? <button onClick={logoutHandler}>Log out</button> : <button onClick={loginHandler}>Log in</button>
             }

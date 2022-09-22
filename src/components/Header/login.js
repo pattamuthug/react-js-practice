@@ -6,13 +6,13 @@ import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 function Login(props) {
-    const [users,setUsers]=useState([]);
+    const [users, setUsers] = useState([]);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isvalid, setIsvalid] = useState(false);
     let navigateto = useNavigate();
     const logIn = useContext(userContext);
-  
+
 
 
     const login = (event) => {
@@ -21,7 +21,42 @@ function Login(props) {
         localStorage.setItem("login", "true")
         // props.login("true");
         logIn.setLoggedin("true")
-        navigateto('/');
+        // navigateto('/');
+        // var newArray = users.find((valid)={
+        //     console.log(valid);
+        //     };
+        // });
+        fetch("https://6315a5215b85ba9b11e3c470.mockapi.io/muthu/users").then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                return false;
+            }
+        }).then((data) => {
+            
+            let member = data.find((user) => { return user.email === email })
+
+            if (member) {
+                if (member.password === password) {
+                    logIn.setLoggedin("true");
+                    navigateto('/')
+                } else {
+                    alert('password is incorrect')
+                }
+            } else {
+                alert('email id is incorrect')
+            }
+        })
+        // const loguser = users.find((like) => {
+        //     if (like.email == `${email}`) {
+        //         return true;
+        //     }
+        //     return false
+
+
+        // });
+
+        // console.log(users.email);
         console.log("summa");
     };
 
@@ -35,33 +70,50 @@ function Login(props) {
         setPassword(event.target.value);
     }
     useEffect(() => {
-        const userLogin ={};
+        const userLogin = {};
         userLogin.email = email;
         userLogin.password = password;
+        console.log(userLogin);
         if ((email.includes("@")) && (password.length > 4)) {
             setIsvalid(true)
         }
-        // var newArray = users.filter(()={
-        //     return {userLogin.email};
+        // var newArray = users.find((valid)={
+        //     return 
+        //     };
         // })
+
         // console.log(newArray);
-        console.log(userLogin);
-        fetch('https://6315a5215b85ba9b11e3c470.mockapi.io/muthu/users').then((response)=>{
-                    if (response.ok) {
-                        return response.json()
-                    } 
-                    return false
-                })
-                .then((data)=>{
-                    setUsers(data)
-                })
-                // console.log(users);
+
+
+        // fetch('https://6315a5215b85ba9b11e3c470.mockapi.io/muthu/users').then((response)=>{
+        //             if (response.ok) {
+        //                 return response.json()
+        //             } 
+        //             return false
+        //         })
+        //         .then((data)=>{
+        //             setUsers(data)
+        //         })
+        // console.log(users);
 
     }, [email, password])
+    // useEffect(()=>{
+    //     fetch('https://6315a5215b85ba9b11e3c470.mockapi.io/muthu/users').then((response)=>{
+    //         if (response.ok) {
+    //             return response.json()
+    //         } 
+    //         return false
+    //     })
+    //     .then((data)=>{
+    //         setUsers(data)
+    //     })
+
+    // },[])
     let signto = useNavigate();
     const Signup = () => {
         signto('/signup')
-        console.log(userLogin);
+
+
     }
     return (<div className="body">
         <div className="container">
@@ -74,12 +126,12 @@ function Login(props) {
                 <p>Forgot password?</p>
                 {isvalid ? <button>LOGIN</button> : <button disabled>LOGIN</button>}
                 <div>
-                <p className="signtext">Or Sign Up Using</p>
-                <div className="icons">
-                       <a href="https://twitter.com"><i className="fa fa-twitter socialLink"></i></a> 
+                    <p className="signtext">Or Sign Up Using</p>
+                    <div className="icons">
+                        <a href="https://twitter.com"><i className="fa fa-twitter socialLink"></i></a>
                         <a href="https://www.facebook.com"><i className="fa fa-facebook socialLink" id="face"></i></a>
                         <a href="https://www.instagram.com/accounts/login/"><i className="fa fa-instagram socialLink" id="insta"></i></a>
-                </div>
+                    </div>
                 </div>
                 <div>
                     <p className="signtext">Or Sign Up Using</p>

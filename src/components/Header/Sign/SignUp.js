@@ -11,7 +11,7 @@ function Signup(props) {
         name: "",
         email: "",
         mobile: "",
-        confirmPassword: "",
+        password: "",
 
     });
     const userHandler = (event) => {
@@ -34,15 +34,15 @@ function Signup(props) {
         // setSignUp((preState)=>{
         //     return{...preState, name:event.target.value}    
         // });
-        console.log(setPassword);
+    
     }
     const confirmHandler = (event) => {
         setSignUp((preState) => {
-            return { ...preState, confirmPassword: event.target.value }
+            return { ...preState,password: event.target.value }
         });
     }
     useEffect(() => {
-        if (signUp.email.includes("@") && signUp.email.includes(".") && signUp.confirmPassword > 4 && (password==signUp.confirmPassword)) {
+        if (signUp.email.includes("@") && signUp.email.includes(".") && signUp.password > 4 && (password==signUp.password)) {
             setIsvalid("true")
         } else {
             setIsvalid("false")
@@ -64,7 +64,7 @@ function Signup(props) {
     const SingupHandler = (event) => {
         console.log(signUp);
         event.preventDefault();
-        loginto('/')
+        loginto('/login')
         fetch('https://6315a5215b85ba9b11e3c470.mockapi.io/muthu/users', {
                 method : 'POST',
                 headers : {
@@ -73,12 +73,13 @@ function Signup(props) {
                 },
                 body : JSON.stringify(signUp)
             })
+            console.log('clicked');
     }
     return (<>
         <div className='signupContainer'>
             <div className='signTotal'>
                 <img src={props.image}></img>
-                <form className="signForm">
+                <form className="signForm" >
 
                     <h1>Sign Up</h1>
                     <label htmlFor='signText'>Username</label><input id='signText' value={signUp.name} type='text' onChange={userHandler}></input>
